@@ -1,0 +1,56 @@
+html {
+  height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root,
+.App,
+.container,
+body {
+  height: inherit;
+}
+
+body {
+  height: inherit;
+  font-family: "Open Sans", sans-serif;
+  background-color: lightgray;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+#brief,
+#content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  grid-row: span 4;
+}
+
+#header {
+  grid-column: span 12;
+  grid-row: span 1;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: lightgray;
+  color: #4c5a68;
+}
+
+#brief {
+  grid-column: span 3;
+  background-color: #4c5a68;
+  color: lightgray;
+}
+
+#content {
+  grid-column: span 9;
+  background-color: lightseagreen;
+  color: white;
+}
