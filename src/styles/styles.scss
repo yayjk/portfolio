@@ -4,32 +4,33 @@ html {
 
 * {
   box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
 #root,
 .App,
 .container,
-body {
+body,
+.home {
   height: inherit;
 }
 
 body {
-  height: inherit;
   font-family: "Open Sans", sans-serif;
   background-color: lightgray;
 }
 
-.container {
+.home {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(5, 1fr);
 }
 
+#brief-container,
 #brief,
-#content {
+.content {
   display: flex;
-  justify-content: center;
-  align-items: center;
   grid-row: span 4;
 }
 
@@ -54,10 +55,22 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
+}
+
+.nav-links li:hover {
+  transform: scale(1.5);
+  cursor: pointer;
+  background-color: #b2b2b2;
 }
 
 .nav-active {
   transform: translateX(0%) !important;
+}
+
+.navstyle {
+  color: #4c5a68;
+  text-decoration: none;
 }
 
 #mobile-menu {
@@ -73,19 +86,58 @@ body {
   color: lightgray;
 }
 
-#content {
+#brief-container {
+  height: 70%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+#name,
+#intro,
+#socials {
+  width: 75%;
+  text-align: center;
+}
+#name {
+  font-size: 1.5rem;
+}
+#intro {
+  list-style: square;
+}
+
+#socials {
+  display: flex;
+  justify-content: space-between;
+}
+#socials a {
+  text-decoration: none;
+  color: black;
+  padding: 0.5em;
+}
+
+#socials a:hover {
+  cursor: pointer;
+  transform: scale(2.5);
+  background-color: #3c4651;
+}
+
+.content {
   grid-column: span 8;
   background-color: lightseagreen;
   color: white;
 }
 
+#unsupport {
+  display: none;
+}
 @media only screen and (max-width: 550px) {
-  .container {
+  .home {
     grid-template-rows: repeat(10, 1fr);
   }
 
   #header,
-  #content,
+  .content,
   #brief {
     grid-column: span 12;
   }
@@ -94,7 +146,7 @@ body {
     grid-row: span 1;
   }
 
-  #content {
+  .content {
     order: 2;
     grid-row: span 6;
   }
@@ -110,7 +162,7 @@ body {
     position: absolute;
     left: 0px;
     top: 10vh;
-    height: 30vh;
+    height: 60vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -118,6 +170,12 @@ body {
     background-color: lightgray;
     transform: translateX(-100%);
     transition: transform 0.2s ease-in;
+  }
+  .nav-links li {
+    width: 75%;
+  }
+  .nav-links li:hover {
+    transform: scale(1.2);
   }
 
   #mobile-menu {
@@ -131,5 +189,24 @@ body {
   }
   #mobile-menu p {
     padding-left: 20px;
+  }
+
+  #brief-container {
+    height: 100%;
+  }
+  #socials a {
+    padding: 0.25rem;
+  }
+}
+
+@media only screen and (max-width: 150px) {
+  #header,
+  .content,
+  #brief {
+    display: none;
+  }
+
+  #unsupport {
+    display: block;
   }
 }
